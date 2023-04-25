@@ -4,4 +4,5 @@ class Shoe < ApplicationRecord
   has_many :colors
   has_many :size
   has_many :reservations
+  validates_presence_of :name, :price, :description, :sale, :categroy
 end
