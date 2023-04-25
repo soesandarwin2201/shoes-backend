@@ -1,5 +1,5 @@
 class Shoe < ApplicationRecord
-  belongs_to :users
+  belongs_to :user, class_name: 'User'
   has_many :images
   has_many :colors
   has_many :size
