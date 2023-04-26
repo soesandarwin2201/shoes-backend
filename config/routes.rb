@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "shoes#index"
+  get "reservation", to: "reservations#index"
   resources :users
-  resources :shoes
+  resources :shoes do 
+  resources :reservations
+  end
 end
