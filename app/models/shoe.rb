@@ -2,7 +2,7 @@ class Shoe < ApplicationRecord
   belongs_to :user, class_name: 'User'
   has_many :images
   has_many :colors
-  has_many :size
+  has_many :sizes
   has_many :reservations
   
   validates :name, :price, :description, :categroy, presence: true

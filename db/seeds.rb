@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-default_user = User.create!(name: 'meengelay', email: 'meengelay@gmail.com', password: 'koko23052020')
+default_user = User.create!(name: 'test user1', email: 'testuser1@gmail.com', password: 'koko23052020')
 
-default_shoe = default_user.shoes.create!(name: 'test shoes', price: 3500, description: 'this is the test nike shoe', sale: false, categroy: 'woman shoe')
+default_shoe = default_user.shoes.create!(name: 'new shoes1', price: 3500, description: 'this is the new nike shoe', sale: false, categroy: 'woman shoe')
 
 default_color = Color.create!(color: 'white', shoe: default_shoe)
 
