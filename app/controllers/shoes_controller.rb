@@ -5,6 +5,10 @@ class ShoesController < ApplicationController
           @shoes = Shoe.all
           render json: @shoes, include: [:images, :sizes, :colors]
      end
+
+     def show
+      render json: @shoe, include: [:images, :sizes, :colors]
+     end
      
      def new 
           @shoe = Shoe.new
@@ -22,6 +26,11 @@ class ShoesController < ApplicationController
             render json: @shoe.errors, status: :unprocessable_entity
           end
      end
+
+     def destroy
+      @shoe.destroy
+      render json: { message: "Shoe successfully destroyed" }
+    end
 
    private
     def set_shoe
