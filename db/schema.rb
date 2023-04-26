@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_045209) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_26_033012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "colors", force: :cascade do |t|
     t.string "color"
-    t.bigint "shoes_id", null: false
+    t.bigint "shoe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shoes_id"], name: "index_colors_on_shoes_id"
+    t.index ["shoe_id"], name: "index_colors_on_shoe_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.string "url"
-    t.bigint "shoes_id", null: false
+    t.bigint "shoe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shoes_id"], name: "index_images_on_shoes_id"
+    t.index ["shoe_id"], name: "index_images_on_shoe_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -47,18 +47,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_045209) do
     t.text "description"
     t.boolean "sale"
     t.string "categroy"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_shoes_on_users_id"
+    t.index ["user_id"], name: "index_shoes_on_user_id"
   end
 
   create_table "sizes", force: :cascade do |t|
     t.string "size"
-    t.bigint "shoes_id", null: false
+    t.bigint "shoe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shoes_id"], name: "index_sizes_on_shoes_id"
+    t.index ["shoe_id"], name: "index_sizes_on_shoe_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,10 +70,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_045209) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "colors", "shoes", column: "shoes_id"
-  add_foreign_key "images", "shoes", column: "shoes_id"
+  add_foreign_key "colors", "shoes"
+  add_foreign_key "images", "shoes"
   add_foreign_key "reservations", "shoes", column: "shoes_id"
   add_foreign_key "reservations", "users", column: "users_id"
-  add_foreign_key "shoes", "users", column: "users_id"
-  add_foreign_key "sizes", "shoes", column: "shoes_id"
+  add_foreign_key "shoes", "users"
+  add_foreign_key "sizes", "shoes"
 end
